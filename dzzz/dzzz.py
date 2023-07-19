@@ -1,4 +1,4 @@
-
+print('Задание 1')
 a = input('Введите число: ')
 if a.isdigit() or (a.startswith('-') and a[1:].isdigit()):
     a = float(a)
