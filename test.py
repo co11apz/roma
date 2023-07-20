@@ -1,6 +1,6 @@
-a = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
-b = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
-if (x == y for x, y in zip(a, b)):
-    print()
+a = input()
+a = float(a) or int(a)
+if type(a) is float:
+    print('+')
 else:
     print('-')
