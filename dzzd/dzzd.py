@@ -45,26 +45,26 @@
 
 
 
-def decorate(func):
-    def worker(x, y):
-        return x / y
-    return worker
-
-@decorate
-def funct(x, y):
-    return x / y
-
-try:
-    print(funct(4,2))
-
-except TypeError:
-    print('Введите 2 числа')
-
-except ZeroDivisionError:
-    print('На ноль делить нельзя')
-
-except NameError:
-    print('Вы ввели не число')
+# def decorate(func):
+#     def worker(x, y):
+#         return x / y
+#     return worker
+#
+# @decorate
+# def funct(x, y):
+#     return x / y
+#
+# try:
+#     print(funct(4,2))
+#
+# except TypeError:
+#     print('Введите 2 числа')
+#
+# except ZeroDivisionError:
+#     print('На ноль делить нельзя')
+#
+# except NameError:
+#     print('Вы ввели не число')
 
 
 
