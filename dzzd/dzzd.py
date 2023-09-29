@@ -3,34 +3,40 @@
 
 
 
-# def decorate(func):
-#     def worker():
-#         if tip == 'int':
-#             return int(func())
-#         elif tip == 'float':
-#             return float(func())
-#         elif tip == 'str':
-#             return str(func())
-#         elif tip == 'bool':
-#             return bool(func())
-#         elif tip == 'list':
-#             return list(func())
-#         elif tip == 'tuple':
-#             return tuple(func())
-#         elif tip == 'dict':
-#             return dict(func())
-#         elif tip == 'None':
-#             return None
-#         else:
-#             raise ValueError('Такого типа нет')
-#     return worker
-#
-# tip = input()
-# @decorate
-# def funct():
-#     return 1
-#
-# print(type(funct()))
+def decorate(func):
+
+    def worker(tip):
+
+        if tip == int:
+            return int(func(tip))
+        elif tip == float:
+            return float(func(tip))
+        elif tip == str:
+            return str(func(tip))
+        elif tip == bool:
+            return bool(func(tip))
+        elif tip == list:
+            return [func(tip)]
+        elif tip == tuple:
+            return (func(tip),)
+        elif tip == dict:
+            return {'dict': func(tip)}
+        elif tip == None:
+            return None
+        else:
+            raise NameError
+    return worker
+
+
+@decorate
+def funct(type):
+    return 1
+try:
+    print(type(funct(dict)))
+except NameError:
+    print('Некорректный тип данных')
+except TypeError:
+    print('Введите тип данных')
 
 
 
