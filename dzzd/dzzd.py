@@ -3,40 +3,40 @@
 
 
 
-def decorate(func):
-
-    def worker(tip):
-
-        if tip == int:
-            return int(func(tip))
-        elif tip == float:
-            return float(func(tip))
-        elif tip == str:
-            return str(func(tip))
-        elif tip == bool:
-            return bool(func(tip))
-        elif tip == list:
-            return [func(tip)]
-        elif tip == tuple:
-            return (func(tip),)
-        elif tip == dict:
-            return {'dict': func(tip)}
-        elif tip == None:
-            return None
-        else:
-            raise NameError
-    return worker
-
-
-@decorate
-def funct(type):
-    return 1
-try:
-    print(type(funct(dict)))
-except NameError:
-    print('Некорректный тип данных')
-except TypeError:
-    print('Введите тип данных')
+# def decorate(func):
+#
+#     def worker(tip):
+#
+#         if tip == int:
+#             return int(func(tip))
+#         elif tip == float:
+#             return float(func(tip))
+#         elif tip == str:
+#             return str(func(tip))
+#         elif tip == bool:
+#             return bool(func(tip))
+#         elif tip == list:
+#             return [func(tip)]
+#         elif tip == tuple:
+#             return (func(tip),)
+#         elif tip == dict:
+#             return {'dict': func(tip)}
+#         elif tip == None:
+#             return None
+#         else:
+#             raise NameError
+#     return worker
+#
+#
+# @decorate
+# def funct(type):
+#     return 1
+# try:
+#     print(type(funct(dict)))
+# except NameError:
+#     print('Некорректный тип данных')
+# except TypeError:
+#     print('Введите тип данных')
 
 
 
@@ -45,21 +45,26 @@ except TypeError:
 
 
 
-# def decorate(func):
-#     def worker(x, y):
-#         if type(x) != int or type(y) != int:
-#             return 'нужно 2 целых числа (int)'
-#         elif y == 0:
-#             return 'на ноль делить нельзя'
-#         else:
-#             return x / y
-#     return worker
-#
-# @decorate
-# def funct(x, y):
-#     return x / y
-#
-# print(funct(4,2))
+def decorate(func):
+    def worker(x, y):
+        return x / y
+    return worker
+
+@decorate
+def funct(x, y):
+    return x / y
+
+try:
+    print(funct(4,2))
+
+except TypeError:
+    print('Введите 2 числа')
+
+except ZeroDivisionError:
+    print('На ноль делить нельзя')
+
+except NameError:
+    print('Вы ввели не число')
 
 
 
@@ -68,20 +73,23 @@ except TypeError:
 
 
 # def decorate(func):
+#     call = 0
 #     def worker():
-#         global call
+#         nonlocal call
 #         call += 1
+#         print(call)
 #         return call
+#
 #     return worker
 #
 # @decorate
 # def funct():
 #     return
 #
-# call = 0
 #
-# print(funct())
-# print(funct())
-# print(funct())
-# print(funct())
+#
+# funct()
+# funct()
+# funct()
+# funct()
 
